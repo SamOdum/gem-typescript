@@ -1,0 +1,46 @@
+{
+  "name": "gem-typescript",
+  "version": "1.0.0",
+  "description": "A fully configured starter for a GEMT project",
+  "main": "index.js",
+  "author": "Sam Odum",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "start": "node ./dist/index.js",
+    "dev": "nodemon ./src/index.ts",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx",
+    "format": "eslint src/**/*.ts --fix",
+    "tsc": "tsc",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "eslint-config-airbnb-typescript": "^14.0.1",
+    "express": "^4.17.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.6.1",
+    "graphql-playground-middleware-express": "^1.7.22",
+    "mongodb": "^4.1.3",
+    "mongoose": "^6.0.10"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^16.10.3",
+    "@typescript-eslint/eslint-plugin": "^4.29.3",
+    "@typescript-eslint/parser": "^4.29.3",
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb-base": "14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "husky": ">=6",
+    "lint-staged": ">=10",
+    "nodemon": "^2.0.13",
+    "prettier": "^2.4.1",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
+  },
+  "lint-staged": {
+    "*.{js,ts}": "eslint --ext .js,.jsx,.ts,.tsx",
+    "*.--fix": "prettier --write"
+  }
+}
