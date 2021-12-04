@@ -23,7 +23,7 @@ Eslint and Prettier enforce code consistency which means your code style and pre
 
 Lint-staged ensures that all your code is linted and checked by Prettier and Eslint. Husky is there to guarantee that each time you try to commit your code, it is meticulously squeezed through Lint-staged. This means you'll have an opportunity to address any errors or inconsistencies in your code _before_ it is commited. Nodemon provides a better developer experience with hot module reloading. It also provides a simpler way to deal with enviroment variables.
 
-Note that this starter includes a fully functional sample GraphQl and Mongoose implementation. Feel free to do whatever you want with it
+Note that this starter includes a fully functional sample GraphQl and Mongoose implementation. Feel free to do whatever you want with it.
 
 ## Get started
 

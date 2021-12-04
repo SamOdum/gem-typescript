@@ -1,6 +1,5 @@
 import express, { Application } from 'express';
 import { graphqlHTTP } from 'express-graphql';
-import expressPlayground from 'graphql-playground-middleware-express';
 
 import startDb from './database/db';
 import schema from './api/schema/events';
@@ -17,20 +16,14 @@ startDb().catch((err) => {
 
 const context = () => ({ Event });
 
-app.use(
-  '/graphql',
-  // This 'magic' here mitigates the issue of Promise returned
-  // in function argument where a void return was expected.
-  (req, res, next) => {
-    graphqlHTTP({
-      schema,
-      rootValue: resolvers,
-      context,
-    })(req, res).catch((err) => next(err));
-  },
-);
-
-app.get('/playground', expressPlayground({ endpoint: '/graphql' }));
+app.use('/graphql', () => {
+  graphqlHTTP({
+    schema,
+    rootValue: resolvers,
+    context,
+    graphiql: { headerEditorEnabled: true },
+  });
+});
 
 app.listen(PORT, (): void => {
   // eslint-disable-next-line no-console
